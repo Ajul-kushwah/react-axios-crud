@@ -1,3 +1,12 @@
+# Home page
+<img src="images/read.png">
+
+# Create data page
+<img src="images/create.png">
+
+# Update data page
+<img src="images/edit.png">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
