@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function Read() {
 
     const [apiData, setApiData] = useState([])
+    const [inputText, setInputText] = useState("");
 
     function getData() {
         axios.get('https://63b3f7299f50390584a2c2aa.mockapi.io/crud')
@@ -24,17 +25,20 @@ function Read() {
             });
     }
 
-    function setDataToStorage(id, name, age, email){
-        localStorage.setItem('id',id);
-        localStorage.setItem('name',name);
-        localStorage.setItem('age',age);
-        localStorage.setItem('email',email);
+    function setDataToStorage(id, name, age, email) {
+        localStorage.setItem('id', id);
+        localStorage.setItem('name', name);
+        localStorage.setItem('age', age);
+        localStorage.setItem('email', email);
     }
 
     useEffect(() => {
         getData();
     }, [])
 
+    const inputHandler = (e) => {
+        setInputText(e.target.value.toLowerCase());
+    };
 
     return (
         <>
@@ -45,7 +49,10 @@ function Read() {
                             <button className='btn btn-primary'>Create New Data</button>
                         </Link>
                     </div>
-
+                    <div className='form-group'>
+                        <label>Search : </label>
+                        <input type='text' placeholder='Name' className='form-control' onChange={inputHandler} />
+                    </div>
                     <table className='table table-bordered table-striped table-dark table-hover'>
                         <thead>
                             <tr>
@@ -59,7 +66,16 @@ function Read() {
                         </thead>
                         <tbody>
                             {
-                                apiData.map((item) => {
+                                apiData.filter((el) => {
+                                    if (el === "") {
+                                      return el;
+                                    } else {
+                                      return (
+                                        el.e_name.toLowerCase().includes(inputText) ||
+                                        el.e_email.toLowerCase().includes(inputText)
+                                      );
+                                    }
+                                  }).map((item) => {
                                     return (
                                         <>
                                             <tr>

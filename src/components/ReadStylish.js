@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function Read() {
 
     const [apiData, setApiData] = useState([])
+    const [inputText, setInputText] = useState("");
 
     function getData() {
         axios.get('https://63b3f7299f50390584a2c2aa.mockapi.io/crud')
@@ -35,6 +36,9 @@ function Read() {
         getData();
     }, [])
 
+    const inputHandler = (e) => {
+        setInputText(e.target.value.toLowerCase());
+    };
 
     return (
         <>
@@ -53,7 +57,7 @@ function Read() {
                             {/* Topbar Search */}
                             <form action="" className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div className="input-group">
-                                <input type="text" name="q" onChange={()=>{}} className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/>
+                                <input type="text" name="q" onChange={inputHandler} className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/>
                                 <div className="input-group-append">
                                     <button className="btn btn-secondary" type="submit">
                                     <i className="fas fa-search fa-sm"></i>
@@ -109,7 +113,16 @@ function Read() {
                     <div className="col-md-8 overflow-auto" style={{maxHeight: '410px'}}>
                         {/* card */}
                         {
-                            apiData.slice(0).reverse().map((item) => {
+                            apiData.filter((el) => {
+                                if (el === "") {
+                                  return el;
+                                } else {
+                                  return (
+                                    el.e_name.toLowerCase().includes(inputText) ||
+                                    el.e_email.toLowerCase().includes(inputText)
+                                  );
+                                }
+                              }).slice(0).reverse().map((item) => {
                                 return (
                                     <>
                                         <div className="card gedf-cardd mb-2">
