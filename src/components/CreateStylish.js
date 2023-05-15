@@ -13,7 +13,7 @@ function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://63b3f7299f50390584a2c2aa.mockapi.io/crud', {
+        axios.post('https://64626dbb7a9eead6facf11a0.mockapi.io/crud', {
             e_name: name,
             e_age: age,
             e_email: email

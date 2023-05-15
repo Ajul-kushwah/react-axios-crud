@@ -19,7 +19,7 @@ function Edit() {
     
     const handleUpdate = (e) => {
         e.preventDefault();
-        axios.put(`https://63b3f7299f50390584a2c2aa.mockapi.io/crud/${id}`,{
+        axios.put(`https://64626dbb7a9eead6facf11a0.mockapi.io/crud/${id}`,{
             e_name: name,
             e_age: age,
             e_email: email

@@ -8,7 +8,7 @@ function Read() {
     const [inputText, setInputText] = useState("");
 
     function getData() {
-        axios.get('https://63b3f7299f50390584a2c2aa.mockapi.io/crud')
+        axios.get('https://64626dbb7a9eead6facf11a0.mockapi.io/crud')
             .then((response) => {
                 setApiData(response.data);
             }).catch((err) => {
