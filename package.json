@@ -1,7 +1,7 @@
 {
   "name": "crud-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage":"https://github.io/Ajul-kushwah/Crud_App_with_reactJS_and_Axios", 
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
