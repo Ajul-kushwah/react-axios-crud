@@ -15,7 +15,7 @@ function App() {
         {/*
         <Route exact path='/' element={<Read/>}></Route>
          */}
-        <Route exact path='/Crud_App_with_reactJS_and_Axios' element={<ReadStylish/>}></Route>
+        <Route exact path='/' element={<ReadStylish/>}></Route>
         {/*
         <Route exact path='/create' element={<Create/>}></Route>
         */}
