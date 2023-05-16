@@ -140,12 +140,28 @@ function Read() {
                                                         </div>
                                                         
                                                     </div>
-                                                    <div>
+                                                    {/*<div>
                                                         <Link to='/edit'>
                                                             <button className='btn btn-secondary' onClick={() => setDataToStorage(item.id, item.e_name, item.e_age, item.e_email)}>Edit</button>
                                                         </Link>
                                                         <button className='btn btn-outline-danger ml-2' onClick={() => { if (window.confirm('Are You Sure To Delete Data ??')) { handleDelete(item.id) } }}>Delete</button>
                                                     </div>
+                                                    */}
+                                                    
+                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                        <Link to='/edit'>
+                                                            <button type="button" 
+                                                            class="btn btn-secondary"
+                                                            onClick={() => setDataToStorage(item.id, item.e_name, item.e_age, item.e_email)}>
+                                                                <i className="fas fa-edit fa-sm"></i>
+                                                            </button>
+                                                        </Link>    
+                                                        <button type="button" 
+                                                        class="btn btn-secondary"
+                                                        onClick={() => { if (window.confirm('Are You Sure To Delete Data ??')) { handleDelete(item.id) } }}>
+                                                            <i className="fas fa-trash fa-sm"></i>
+                                                        </button>
+                                                      </div>
                                                 </div>
                                             </div>
                                         </div>
