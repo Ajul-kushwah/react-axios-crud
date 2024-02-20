@@ -1,11 +1,13 @@
 import './App.css';
-import Create from './components/Create';
+//import Create from './components/Create';
+import LoginStylish from './components/LoginStylish';
 import CreateStylish from './components/CreateStylish';
 import { Routes, Route } from 'react-router-dom';
-import Read from './components/Read';
+//import Read from './components/Read';
 import ReadStylish from './components/ReadStylish';
-import Edit from './components/Edit';
+//import Edit from './components/Edit';
 import EditStylish from './components/EditStylish';
+import SessionHandler from './components/SessionHandler';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route exact path='/' element={<Read/>}></Route>
          */}
         <Route exact path='/' element={<ReadStylish/>}></Route>
+        <Route exact path='/login' element={<LoginStylish/>}></Route> 
+        
         {/*
         <Route exact path='/create' element={<Create/>}></Route>
         */}
@@ -23,6 +27,7 @@ function App() {
         {/*
         <Route exact path='/edit' element={<Edit/>}></Route>
         */}
+        <Route exact path='/session' element={<SessionHandler/>}></Route>
       </Routes>
     </div>
   );

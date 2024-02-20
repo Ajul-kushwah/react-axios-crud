@@ -1,11 +1,16 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Read() {
 
     const [apiData, setApiData] = useState([])
     const [inputText, setInputText] = useState("");
+
+    const navigate = useNavigate();
+
+    
+
 
     function getData() {
         axios.get('https://64626dbb7a9eead6facf11a0.mockapi.io/crud')
@@ -33,7 +38,21 @@ function Read() {
     }
 
     useEffect(() => {
-        getData();
+        const sessionData = localStorage.getItem('userSession');
+
+        if (sessionData) {
+            const {id, username, loggedIn, expirationTime } = JSON.parse(sessionData);
+            console.log(loggedIn,expirationTime, new Date().getTime() < expirationTime);
+            if (loggedIn && new Date().getTime() < expirationTime) {
+                getData();
+                //navigate('/');
+            }else{
+                navigate('/login');
+            }
+        }else{
+            navigate('/login');
+        }
+        //getData();
     }, [])
 
     const inputHandler = (e) => {
