@@ -151,7 +151,7 @@ function Read() {
                                         </a>
                                         <div className="dropdown-divider"></div>
                                         
-                                        <a onClick={handleLogout} className="dropdown-item" href="#">
+                                        <a onClick={handleLogout} className="dropdown-item">
                                         <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                         </a>
