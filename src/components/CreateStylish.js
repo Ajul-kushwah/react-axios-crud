@@ -92,12 +92,12 @@ function Create() {
                                 <br/>
                                 {/* Neither is this */}
                                 <div class="form-group ">
-                                    <input type="submit" class="btn btn-secondary btn-block" value="Submit"/>
+                                    <input type="submit" class="btn btn-secondary btn-block bg-secondary bg-gradient" value="Submit"/>
                                 </div>
                                 
                                 <div class="form-group">
                                     <Link to='/'>
-                                        <a href="" class="text-center text-secondary">want to read data?</a>
+                                        <a href="" class="text-center text-secondary">wanna read data?</a>
                                     </Link>
                                 </div>
                                 
