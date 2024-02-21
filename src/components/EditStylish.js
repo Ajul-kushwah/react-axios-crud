@@ -42,13 +42,13 @@ function Edit() {
                     <div class="mt-4">
                         <form class="" onSubmit={handleUpdate}>
                             <div class="form-group">
-                                <input type='text' value={name} placeholder='Name' onChange={(e) => setName(e.target.value)}  className='form-control'/>
+                                <input type='text' value={name} placeholder='Name' onChange={(e) => setName(e.target.value)}  className='form-control'required/>
                             </div>
                             <div class="form-group">
-                                <input type='number' value={age} placeholder='Age' onChange={(e) => setAge(e.target.value)} className='form-control' />
+                                <input type='number' value={age} placeholder='Age' onChange={(e) => setAge(e.target.value)} className='form-control' required/>
                             </div>
                             <div class="form-group">
-                                <input type='email' value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' />
+                                <input type='email' value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' required/>
                             </div>
                             
                             <br/>
@@ -59,7 +59,7 @@ function Edit() {
                             
                             <div class="form-group">
                                 <Link to='/'>
-                                    <a href="" class="text-center text-secondary">want to read data?</a>
+                                    <a href="" class="text-center text-secondary">wanna read data?</a>
                                 </Link>
                             </div>
                             

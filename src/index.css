@@ -26,7 +26,7 @@ input[type=password]
 }
 
 .form-control:focus {
-    border-color: #AF10BF;
+    border-color: #2c262c;
     /* border-color: #000000; */
     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
     /* box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); */
@@ -41,6 +41,8 @@ input[type=password]
 .chat-msg{
     width:50%;
 }
+
+input[type="text"]:disabled{background-color:red;}
 
 @media screen and (max-width: 360px) {
     /* body {

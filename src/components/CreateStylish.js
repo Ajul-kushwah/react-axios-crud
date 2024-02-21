@@ -75,13 +75,13 @@ function Create() {
                         <div class="mt-4">
                             <form class="" onSubmit={handleSubmit}>
                                 <div class="form-group">
-                                    <input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)}  className='form-control'/>
+                                    <input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)}  className='form-control' required/>
                                 </div>
                                 <div class="form-group">
-                                    <input type='number' placeholder='Age' onChange={(e) => setAge(e.target.value)} className='form-control' />
+                                    <input type='number' placeholder='Age' onChange={(e) => setAge(e.target.value)} className='form-control' required/>
                                 </div>
                                 <div class="form-group">
-                                    <input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' />
+                                    <input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' required/>
                                 </div>
                                 {/*<div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1"/>

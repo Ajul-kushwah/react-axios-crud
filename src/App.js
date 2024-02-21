@@ -8,6 +8,7 @@ import ReadStylish from './components/ReadStylish';
 //import Edit from './components/Edit';
 import EditStylish from './components/EditStylish';
 import SessionHandler from './components/SessionHandler';
+import LogoutStylish from './components/LogoutStylish';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route exact path='/edit' element={<Edit/>}></Route>
         */}
         <Route exact path='/session' element={<SessionHandler/>}></Route>
+        <Route exact path='/logoutWindow' element={<LogoutStylish/>}></Route>
       </Routes>
     </div>
   );

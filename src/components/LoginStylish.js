@@ -2,6 +2,8 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser'; // npm i @emailjs/browser
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
+import $ from 'jquery';
+import Popper from 'popper.js';
 
 function Login() {
     const [id, setId] = useState(0);
@@ -14,12 +16,6 @@ function Login() {
         // Generate a random number between 100000 (inclusive) and 999999 (inclusive)
         return Math.floor(Math.random() * 900000) + 100000;
     }
-    
-    // Store the generated random number in a variable
-    //var randomSixDigitNumber = generateOTP().toString();
-    
-    // Print the random number
-    //console.log(randomSixDigitNumber);
     
     function sendOTPOnMail(to_name, to_email, otp){
         
@@ -67,15 +63,12 @@ function Login() {
 
             const sessionData = {
                 id:response.data.id,
-                username: response.data.email,
-                loggedIn: true,
-                // Set session expiration time (e.g., 30 minutes)
-                expirationTime: new Date().getTime() + 30 * 60 * 1000 // 30 minutes from now
+                email: response.data.email
             };
-            localStorage.setItem('userSession', JSON.stringify(sessionData));
+            localStorage.setItem('userID', JSON.stringify(sessionData));
 
-            sendOTPOnMail("Brother or Unki Sister", response.data.email, randomSixDigitNumber);
-
+            //sendOTPOnMail("Brother or Unki Sister", response.data.email, randomSixDigitNumber);
+            alert(`please login with OTP -  ${randomSixDigitNumber}`);
         }).catch((err) => {
             console.log(err);
         });
@@ -83,13 +76,12 @@ function Login() {
 
     const verifyOTP = (e) => {
         e.preventDefault();
-        const sessionData = localStorage.getItem('userSession');
+        const sessionData = localStorage.getItem('userID');
 
         if (sessionData) {
-            const {id, username, loggedIn, expirationTime } = JSON.parse(sessionData);
-            if (loggedIn && new Date().getTime() < expirationTime) {
+            const {id, email} = JSON.parse(sessionData);
+            if (id >0 && email!=null) {
                 //console.log(JSON.parse(sessionData));
-            
                 //console.log(id);
                 axios.get(`https://64626dbb7a9eead6facf11a0.mockapi.io/user/${id}`)
                 .then((response) => {
@@ -98,6 +90,14 @@ function Login() {
                     //console.log(name);
                     if(Number(name) === Number(response.data.otp)){
                         alert("Email verified Successfully....");
+                        const userSessionData = {
+                            id:response.data.id,
+                            username: response.data.email,
+                            loggedIn: true,
+                            // Set session expiration time (e.g., 30 minutes)
+                            expirationTime: new Date().getTime() + 30 * 60 * 1000 // 30 minutes from now
+                        };
+                        localStorage.setItem('userSession', JSON.stringify(userSessionData));
                         navigate('/');
                     }else{
                         alert("Invalid OTP.");
@@ -114,7 +114,7 @@ function Login() {
 
         if (sessionData) {
             const {id, username, loggedIn, expirationTime } = JSON.parse(sessionData);
-            console.log(loggedIn,expirationTime, new Date().getTime() < expirationTime);
+            //console.log(loggedIn,expirationTime, new Date().getTime() < expirationTime);
             if (loggedIn && new Date().getTime() < expirationTime) {
                 navigate('/');
             }else{
@@ -137,12 +137,6 @@ function Login() {
                                 <div class="form-group">
                                     <input type='email' id='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' />
                                 </div>
-                                {/* <div class="form-group">
-                                    <input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)}  className='form-control'/>
-                                </div>
-                                <div class="form-group">
-                                    <input type='number' placeholder='Age' onChange={(e) => setAge(e.target.value)} className='form-control' />
-                                </div> */}
                                 
                                 <div class="form-group ">
                                     <input type="submit" id="sendotp" class="btn btn-secondary btn-block" value="Send OTP"/>
@@ -151,26 +145,16 @@ function Login() {
                             </form>
                             
                             <form class="" onSubmit={verifyOTP}>
-                                <div class="form-group">
-                                    <input type='email' hidden placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' />
-                                </div>
-                                {/* <div class="form-group">
-                                    <input type='text' id="otp" style={{display:"none"}}  placeholder='OTP' onChange={(e) => setName(e.target.value)}  className='form-control'/>
-                                </div> */}
+                                
                                 <div class="input-group mb-3">
-                                    <input type="text" id="otp" style={{display:"none"}}  placeholder='OTP' onChange={(e) => setName(e.target.value)}  className='form-control' aria-describedby="resend-otp"/>
+                                    <input type="text" id="otp" style={{display:"none"}}  placeholder='OTP' onChange={(e) => setName(e.target.value)}  className='form-control' aria-describedby="resend-otp" required/>
                                     <button onClick={handleSubmit} class="btn btn-outline-secondary" id="resend-otp" style={{display:"none"}} type="button">resend?</button>
                                 </div>
                                 
                                 <div class="form-group ">
                                     <input type="submit" id="verifyotp" style={{display:"none"}}  class="btn btn-secondary btn-block" value="Verify OTP"/>
                                 </div>
-
-                                {/* <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                                </div> */}
-                                
+ 
                             </form>
                         </div>
                     </div>

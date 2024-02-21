@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 function SessionHandler() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const navigate = useNavigate();
 
   // Function to start a session for the authenticated user
   const startSession = (username) => {
@@ -32,7 +35,8 @@ function SessionHandler() {
   // Function to end the user session
   const endSession = () => {
     localStorage.removeItem('userSession');
-    setLoggedInUser(null);
+    //setLoggedInUser(null);
+    navigate('/login');
   };
 
   // useEffect hook to check session when the component mounts
