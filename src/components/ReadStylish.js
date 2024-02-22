@@ -74,7 +74,7 @@ function Read() {
 
     return (
         <>
-            <div className="container">
+            <div className="">
                 <br className=""/>
                 <br className=""/>
 
@@ -106,26 +106,7 @@ function Read() {
                             </Link>
                             
                             <ul className="navbar-nav ml-auto">
-                                {/* Nav Item - Search Dropdown (Visible Only XS) */}
-                                <li className="nav-item dropdown no-arrow d-sm-none">
-                                    <a className="nav-link " href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="fas fa-search fa-fw"></i>
-                                    </a>
-                                    {/* Dropdown - Messages */}
-                                    <div className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                        <form action="" className="form-inline mr-auto w-100 navbar-search">
-                                        <div className="input-group">
-                                            <input type="text" name="q" onChange={()=>{}} className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/>
-                                            <div className="input-group-append">
-                                            <button className="btn btn-primary" type="submit">
-                                                <i className="fas fa-search fa-sm"></i>
-                                            </button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </li>
-                                
+                               
                                 <div className="topbar-divider d-none d-sm-block"></div>
                                 
                                 {/* Nav Item - User Information */}
@@ -163,6 +144,19 @@ function Read() {
                     </div>
                 </div>
 
+                <div class="row align-items-center justify-content-center mb-2 d-sm-none">
+                    <div class="col-md-8">
+                        <div className="input-group">
+                            <input type="text" name="query" onChange={inputHandler} className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/>
+                            <div className="input-group-append">
+                                <button className="btn btn-secondary" type="submit">
+                                    <i className="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* users */}
                 <div className="row align-items-center justify-content-center">
                     <div className="col-md-8 overflow-auto" style={{maxHeight: '410px'}}>
@@ -189,9 +183,11 @@ function Read() {
                                                         </div>
                                                         <div className="ml-2">
                                                             <div className="h5 m-0">
-                                                                <a href="" style={{color: 'black'}}>{item.e_name}</a>
+                                                                <a data-bs-toggle="collapse" href={'#'+item.id} role="button" aria-expanded="false" aria-controls="collapseExample" style={{color: 'black'}}>{item.e_name}</a>
                                                             </div>
-                                                            <div className="h7 text-muted">ID : {item.id} | Age : {item.e_age} | {item.e_email}</div>
+                                                            {/* <div className="h7 text-muted">ID : {item.id} | Age : {item.e_age} | {item.e_email}</div> */}
+                                                            <h7 className="h7 text-muted"> {item.e_email}</h7>
+
                                                         </div>
                                                         
                                                     </div>
@@ -203,7 +199,7 @@ function Read() {
                                                     </div>
                                                     */}
                                                     
-                                                    <div className="btn-group mr-2" role="group" aria-label="First group">
+                                                    <div className="btn-group" role="group" aria-label="First group">
                                                         <Link to='/edit'>
                                                             <button type="button" 
                                                             className="btn btn-secondary bg-secondary bg-gradient"
@@ -219,6 +215,14 @@ function Read() {
                                                       </div>
                                                 </div>
                                             </div>
+
+                                            {/* collapse - collapseExample*/}
+                                            <div class="collapse" id={item.id}>
+                                                <div class="card card-body text-muted">
+                                                ID : {item.id} | Age : {item.e_age} | {item.e_email}
+                                                </div>
+                                            </div>
+                                            {/* end collapse */}
                                         </div>
                                     </>
                                 )

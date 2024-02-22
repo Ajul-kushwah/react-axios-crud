@@ -2,7 +2,7 @@
   "name": "crud-app",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://ajul-kushwah.github.io/Crud_App_with_reactJS_and_Axios",
+  "homepage": "https://ajul-kushwah.github.io/react-axios-crud",
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.5",
