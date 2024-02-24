@@ -1,4 +1,5 @@
 import './App.css';
+import Home from './components/Home';
 //import Create from './components/Create';
 import LoginStylish from './components/LoginStylish';
 import CreateStylish from './components/CreateStylish';
@@ -14,6 +15,10 @@ function App() {
   return (
     <div className="container">
       <Routes>
+        
+        <Route exact path='/home' element={<Home/>}></Route>
+        
+
         {/*
         <Route exact path='/' element={<Read/>}></Route>
          */}

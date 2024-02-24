@@ -186,7 +186,7 @@ function Read() {
                                                                 <a data-bs-toggle="collapse" href={'#'+item.id} role="button" aria-expanded="false" aria-controls="collapseExample" style={{color: 'black'}}>{item.e_name}</a>
                                                             </div>
                                                             {/* <div className="h7 text-muted">ID : {item.id} | Age : {item.e_age} | {item.e_email}</div> */}
-                                                            <h7 className="h7 text-muted"> {item.e_email}</h7>
+                                                            <small className="h7 text-muted"> {item.e_email}</small>
 
                                                         </div>
                                                         
@@ -217,7 +217,7 @@ function Read() {
                                             </div>
 
                                             {/* collapse - collapseExample*/}
-                                            <div class="collapse" id={item.id}>
+                                            <div class="collapse" id={item.id} data-bs-parent="#accordion">
                                                 <div class="card card-body text-muted">
                                                 ID : {item.id} | Age : {item.e_age} | {item.e_email}
                                                 </div>
