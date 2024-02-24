@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/react-axios-crud/static/css/main.591a5c3b.css",
-    "main.js": "/react-axios-crud/static/js/main.ca58d277.js",
+    "main.css": "/react-axios-crud/static/css/main.2c5bd922.css",
+    "main.js": "/react-axios-crud/static/js/main.78bfa2db.js",
     "index.html": "/react-axios-crud/index.html",
-    "main.591a5c3b.css.map": "/react-axios-crud/static/css/main.591a5c3b.css.map",
-    "main.ca58d277.js.map": "/react-axios-crud/static/js/main.ca58d277.js.map"
+    "static/media/check.svg": "/react-axios-crud/static/media/check.c7546bfc1fa21c7a2435.svg",
+    "main.2c5bd922.css.map": "/react-axios-crud/static/css/main.2c5bd922.css.map",
+    "main.78bfa2db.js.map": "/react-axios-crud/static/js/main.78bfa2db.js.map"
   },
   "entrypoints": [
-    "static/css/main.591a5c3b.css",
-    "static/js/main.ca58d277.js"
+    "static/css/main.2c5bd922.css",
+    "static/js/main.78bfa2db.js"
   ]
 }
