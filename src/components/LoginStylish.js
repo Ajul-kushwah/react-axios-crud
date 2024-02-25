@@ -2,11 +2,11 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser'; // npm i @emailjs/browser
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import $ from 'jquery';
-import Popper from 'popper.js';
+//import $ from 'jquery';
+//import Popper from 'popper.js';
 
 function Login() {
-    const [id, setId] = useState(0);
+    //const [id, setId] = useState(0);
     const [name, setName] = useState('');
     //const [age, setAge] = useState('');
     const [email, setEmail] = useState('');
@@ -38,7 +38,10 @@ function Login() {
         .then( res => {
             alert("OTP sent on Your Email Successfully");
         })
-        .catch();
+        .catch((err) => {
+            console.log(err);
+            alert(`Error - ${err}`);
+        });
     }
 
     const navigate = useNavigate();
@@ -67,10 +70,11 @@ function Login() {
             };
             localStorage.setItem('userID', JSON.stringify(sessionData));
 
-            //sendOTPOnMail("Brother or Unki Sister", response.data.email, randomSixDigitNumber);
-            alert(`please login with OTP -  ${randomSixDigitNumber}`);
+            sendOTPOnMail("Brother or Unki Sister", response.data.email, randomSixDigitNumber);
+            //alert(`please login with OTP -  ${randomSixDigitNumber}`);
         }).catch((err) => {
             console.log(err);
+            alert(`Error - ${err}`);
         });
     }
 
@@ -98,12 +102,13 @@ function Login() {
                             expirationTime: new Date().getTime() + 30 * 60 * 1000 // 30 minutes from now
                         };
                         localStorage.setItem('userSession', JSON.stringify(userSessionData));
-                        navigate('/');
+                        navigate('/read');
                     }else{
                         alert("Invalid OTP.");
                     }
                 }).catch((err) => {
                     console.log(err);
+                    alert(`Error - ${err}`);
                 });
             } 
         }
@@ -116,7 +121,7 @@ function Login() {
             const {id, username, loggedIn, expirationTime } = JSON.parse(sessionData);
             //console.log(loggedIn,expirationTime, new Date().getTime() < expirationTime);
             if (loggedIn && new Date().getTime() < expirationTime) {
-                navigate('/');
+                navigate('/read');
             }else{
                 navigate('/login');
             }
@@ -135,7 +140,7 @@ function Login() {
                         <div class="mt-4">
                             <form class="" onSubmit={handleSubmit}>
                                 <div class="form-group">
-                                    <input type='email' id='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' />
+                                    <input type='email' id='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} className='form-control' required/>
                                 </div>
                                 
                                 <div class="form-group ">

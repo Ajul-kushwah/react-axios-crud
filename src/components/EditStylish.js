@@ -24,7 +24,7 @@ function Edit() {
             e_age: age,
             e_email: email
         }).then(() => {
-            navigate('/');
+            navigate('/read');
         }).catch((err) => {
             console.log(err)
         });
@@ -58,7 +58,7 @@ function Edit() {
                             </div>
                             
                             <div class="form-group">
-                                <Link to='/'>
+                                <Link to='/read'>
                                     <a href="" class="text-center text-secondary">wanna read data?</a>
                                 </Link>
                             </div>

@@ -70,6 +70,18 @@ function Read() {
         }
         
     };
+    const handleProfile = (e) => {
+        navigate('/profile');
+    };
+    const handleSetting = (e) => {
+        navigate('/setting');
+    };
+    const handleActivity = (e) => {
+        navigate('/activity');
+    };
+    const handleHome = (e) => {
+        navigate('/');
+    };
     
 
     return (
@@ -118,15 +130,15 @@ function Read() {
                                     </a>
                                     {/* Dropdown - User Information */}
                                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                        <a className="dropdown-item">
+                                        <a onClick={handleProfile} className="dropdown-item">
                                         <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                         </a>
-                                        <a className="dropdown-item">
+                                        <a onClick={handleSetting} className="dropdown-item">
                                         <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Settings
                                         </a>
-                                        <a className="dropdown-item">
+                                        <a onClick={handleActivity} className="dropdown-item">
                                         <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Activity Log
                                         </a>

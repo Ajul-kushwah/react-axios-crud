@@ -5,13 +5,13 @@ function LogoutStylish() {
 
     const navigate = useNavigate();
     
-    const [seconds, setSeconds] = useState(10);
+    const [seconds, setSeconds] = useState(6);
 
     var timer;
     useEffect (()=>{
         timer = setInterval(()=>{
             setSeconds(seconds-1);
-            if(seconds==1){
+            if(seconds===1){
                 navigate('/login');
             }
         }, 1000)
