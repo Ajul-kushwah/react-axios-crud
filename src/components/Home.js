@@ -390,7 +390,7 @@ function Home() {
                 <img src="img/mobile-view/read-item2.jpg" alt="Gallery-img" class="img-fluid img-box" />
               </div>
               <div class="col-md-4">
-                <img src="img/mobile-view/404error2.png" alt="Gallery-img" class="img-fluid img-box" />
+                <img src="img/mobile-view/404error2.PNG" alt="Gallery-img" class="img-fluid img-box" />
               </div>
             </div>
             <div class="row mt-5 justify-content-end">
